@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <!-- Configuration timbre : Form -->
+        <record model="ir.ui.view" id="config_login_guest_form">
+            <field name="name">config.login.guest.form</field>
+            <field name="model">config.login.guest</field>
+            <field name="arch" type="xml">
+                <form string="Login guest" edit="true" create="false" delete="false">
+                    <header>
+                        <button string="Disable" name="action_disable" type="object" class="oe_highlight" invisible=" not user_id"/>
+                    </header>
+                    <sheet>
+
+                        <group name="config_login" string="Configuration login guest">
+                            <field name="user_id" class="oe_inline"/>
+                            <field name="database" class="oe_inline"
+                                readonly="1"
+                            />
+
+                        </group>
+
+                    </sheet>
+                   
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_config_login">
+            <field name="name">Configuration login guest</field>
+            <field name="res_model">config.login.guest</field>
+            <field name="view_mode">form</field>
+            <field name="res_id" ref="guest_user_config"></field>
+       
+        </record>
+
+        <menuitem id="menu_user_login_guest"
+            name="User login guest"
+            parent="base.menu_users"
+        />
+        <menuitem id="menu_login_config"
+            action="action_config_login"
+            name="Configuration login guest"
+            parent="menu_user_login_guest"
+        />
+    </data>
+</odoo>
