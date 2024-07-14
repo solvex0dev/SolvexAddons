@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="login_user_guest" inherit_id="web.login" name="login_user_guest">
+        <xpath expr="//button[hasclass('btn-primary')]" position="after">
+            <div class="login_as_guest">
+                <div class="btn btn-primary" id="login_click" t-on-click='_onLoginClick' style='width:100%;'>
+                   Log in as guest
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
